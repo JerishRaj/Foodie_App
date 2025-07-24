@@ -37,19 +37,24 @@ Whether you're a customer, restaurant admin, superadmin, or delivery agent – F
 <summary>Click to expand!</summary>
 
 - 🏠 **Home Page:**
-  ![Home](Images/food-hero.jpg)
+  ![Home](<img width="1919" height="1131" alt="image" src="https://github.com/user-attachments/assets/278162d9-87b4-4d60-8fb9-884dcb8c8ce7" />
+)
 
 - 🏪 **Restaurant Listing:**
-  ![Restaurant List](Images/restaurant-list-demo.jpg)
+  ![Restaurant List](<img width="1916" height="1138" alt="image" src="https://github.com/user-attachments/assets/da68d7a8-45e6-41fe-a8bb-188dc5f32bf7" />
+)
 
 - 🍽️ **Menu Page:**
-  ![Menu](Images/menu-demo.jpg)
+  ![Menu](<img width="1911" height="1134" alt="image" src="https://github.com/user-attachments/assets/ca8c8382-abaa-4ae6-b909-42e1d2b6280c" />
+)
 
 - 🛒 **Cart & Checkout:**
-  ![Cart](Images/cart-demo.jpg)
+  ![Cart](<img width="1917" height="1134" alt="image" src="https://github.com/user-attachments/assets/a8b2b9b7-b4c3-4527-bd14-4968d7507715" />
+)
 
 - 📦 **Order History:**
-  ![Order History](Images/order-history-demo.jpg)
+  ![Order History](<img width="1917" height="1138" alt="image" src="https://github.com/user-attachments/assets/f319a20a-62f8-4056-960f-f49d3bf325c3" />
+)
 
 </details>
 
