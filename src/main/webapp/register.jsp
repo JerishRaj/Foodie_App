@@ -9,7 +9,7 @@
 <body>
     <div class="form-container">
         <div class="form-title"><i class="fa fa-user-plus"></i> Register</div>
-        <form action="user-resgistration" method="post">
+        <form action="user-registration" method="post">
             <%
                 String error = (String) request.getAttribute("error");
                 String success = (String) request.getAttribute("success");
@@ -36,8 +36,8 @@
                 <input type="password" name="password" class="form-input" required>
             </div>
             <div class="form-group">
-                <label class="form-label">PhoneNumber</label>
-                <input type="number" name="phonenumber" class="form-input" required>
+                 <label class="form-label">Phone Number</label>
+                 <input type="text" name="phoneNumber" class="form-input" required>
             </div>
             <div class="form-group">
                 <label class="form-label">Address</label>
@@ -46,6 +46,7 @@
           <div class="form-group">
                <label class="form-label">Select Role</label>
                <select name="role" class="form-select" required>
+               <option value="">Select Role</option>
                <option value="Customer">Customer</option>
                <option value="RestaurantAdmin">Restaurant Admin</option>
                <option value="DeliveryAgent">Delivery Agent</option>

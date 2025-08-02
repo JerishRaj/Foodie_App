@@ -20,10 +20,7 @@ public class LogoutServlet extends HttpServlet {
             session.invalidate();
         }
 
-        // Optionally, you can add a logout success message as a request attribute
-        req.setAttribute("message", "You have been logged out successfully.");
-
-        // Redirect to login page (or home page, as per your application flow)
-        resp.sendRedirect("login.jsp");
+        // Redirect to home page after logout
+        resp.sendRedirect("home");
     }
 }

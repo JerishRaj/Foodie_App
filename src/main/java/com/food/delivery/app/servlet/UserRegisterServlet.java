@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/user-resgistration")
+@WebServlet("/user-registration")
 public class UserRegisterServlet extends HttpServlet {
 
     @Override
@@ -24,10 +24,18 @@ public class UserRegisterServlet extends HttpServlet {
         String password = req.getParameter("password");
         String address = req.getParameter("address");
         String phoneNumber = req.getParameter("phoneNumber");
-        String role = req.getParameter("role"); // Will be one of: customer, restaurantadmin, superadmin, deliveryagent
+        String role = req.getParameter("role"); // customer, restaurantadmin, superadmin, deliveryagent, etc.
 
-        // You can add validation here for allowed roles if you want!
+        UserDAO userDAO = new UserDAOImpl();
 
+        // 1. Check if email is already registered
+        if (userDAO.getUserByEmailId(email) != null) {
+            req.setAttribute("error", "Email already registered.");
+            req.getRequestDispatcher("register.jsp").forward(req, resp);
+            return;
+        }
+
+        // 2. Register the new user
         User user = new User();
         user.setName(name);
         user.setUserName(username);
@@ -37,18 +45,16 @@ public class UserRegisterServlet extends HttpServlet {
         user.setPhoneNumber(phoneNumber);
         user.setRole(role);
 
-        UserDAO userDAO = new UserDAOImpl();
-        if (userDAO.getUserByEmailId(email) != null) {
-            req.setAttribute("error", "Email already registered.");
-            req.getRequestDispatcher("register.jsp").forward(req, resp);
-            return;
-        }
-
         userDAO.addUser(user);
 
+        // 3. Retrieve the user from DB to get the actual userId
+        User registeredUser = userDAO.getUserByEmailId(email);
+
+        // 4. Set user in session
         HttpSession session = req.getSession();
-        session.setAttribute("userId", user.getUserId());
-        session.setAttribute("user", user);
+        session.setAttribute("userId", registeredUser.getUserId());
+        session.setAttribute("user", registeredUser);
+
         resp.sendRedirect("home");
     }
 }

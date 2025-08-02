@@ -7,6 +7,24 @@
     <title>Foodie | Order History</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="Images/logo.png">
+    <style>
+        .back-btn {
+            padding: 10px 25px;
+            background: #ff5a1f;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            transition: background 0.2s;
+        }
+        .back-btn:hover {
+            background: #e14c15;
+        }
+    </style>
 </head>
 <body>
     <div class="order-container">
@@ -39,6 +57,10 @@
                 </tr>
                 <% } %>
             </table>
+            <!-- Back Button at the bottom -->
+            <div style="text-align:left;">
+                <button onclick="window.history.back();" class="back-btn">Back</button>
+            </div>
         <% } %>
     </div>
 </body>
