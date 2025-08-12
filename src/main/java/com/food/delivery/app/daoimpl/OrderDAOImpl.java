@@ -15,8 +15,8 @@ import com.food.delivery.app.util.DBConnection;
 
 public class OrderDAOImpl implements OrderDAO {
 
-    private final String INSERT_ORDER = "INSERT into `order` (`restaurantId`, `userId`, `orderDate`, `totalAmount`, `status`, `paymentMode`) values (?, ?, ?, ?, ?, ?)";
-    private final String UPDATE_ORDER = "UPDATE `order` SET `restaurantId` = ?, `userId` = ?, `orderDate` = ?, `totalAmount` = ?, `status` = ?, `paymentMode` = ? WHERE `orderId` = ?";
+    private final String INSERT_ORDER = "INSERT into `order` (`restaurantId`, `userId`, `orderDate`, `totalAmount`, `status`, `paymentMode`, `deliveryAddress`) values (?, ?, ?, ?, ?, ?, ?)";
+    private final String UPDATE_ORDER = "UPDATE `order` SET `restaurantId` = ?, `userId` = ?, `orderDate` = ?, `totalAmount` = ?, `status` = ?, `paymentMode` = ?, `deliveryAddress` = ? WHERE `orderId` = ?";
     private final String GET_ORDER_BY_ID = "SELECT * from `order` WHERE `orderId` = ?";
     private final String GET_ALL_ORDERS = "SELECT * from `order`";
     private final String DELETE_ORDER = "DELETE from `order` WHERE `orderId` = ?";
@@ -33,6 +33,7 @@ public class OrderDAOImpl implements OrderDAO {
             prepareStatement.setInt(4, order.getTotalAmount());
             prepareStatement.setString(5, order.getStatus());
             prepareStatement.setString(6, order.getPaymentMode());
+            prepareStatement.setString(7, order.getDeliveryAddress());
 
             int i = prepareStatement.executeUpdate();
 
@@ -63,7 +64,8 @@ public class OrderDAOImpl implements OrderDAO {
             prepareStatement.setInt(4, order.getTotalAmount());
             prepareStatement.setString(5, order.getStatus());
             prepareStatement.setString(6, order.getPaymentMode());
-            prepareStatement.setInt(7, order.getOrderId());
+            prepareStatement.setString(7, order.getDeliveryAddress());
+            prepareStatement.setInt(8, order.getOrderId());
 
             int i = prepareStatement.executeUpdate();
 
@@ -100,7 +102,8 @@ public class OrderDAOImpl implements OrderDAO {
                 int totalamount = res.getInt("totalAmount");
                 String status = res.getString("status");
                 String paymentmode = res.getString("paymentMode");
-                order = new Order(id, restaurantid, userid, orderdate, totalamount, status, paymentmode);
+                String deliveryaddress = res.getString("deliveryAddress");
+                order = new Order(id, restaurantid, userid, orderdate, totalamount, status, paymentmode,deliveryaddress);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -122,7 +125,8 @@ public class OrderDAOImpl implements OrderDAO {
                 int totalamount = res.getInt("totalAmount");
                 String status = res.getString("status");
                 String paymentmode = res.getString("paymentMode");
-                Order ord = new Order(id, restaurantid, userid, orderdate, totalamount, status, paymentmode);
+                String deliveryaddress = res.getString("deliveryAddress");
+                Order ord = new Order(id, restaurantid, userid, orderdate, totalamount, status, paymentmode,deliveryaddress);
                 orders.add(ord);
             }
         } catch (SQLException e) {
@@ -146,7 +150,8 @@ public class OrderDAOImpl implements OrderDAO {
                 int totalamount = res.getInt("totalAmount");
                 String status = res.getString("status");
                 String paymentmode = res.getString("paymentMode");
-                Order ord = new Order(id, restaurantid, userid, orderdate, totalamount, status, paymentmode);
+                String deliveryaddress = res.getString("deliveryAddress");
+                Order ord = new Order(id, restaurantid, userid, orderdate, totalamount, status, paymentmode, deliveryaddress);
                 orders.add(ord);
             }
         } catch (SQLException e) {

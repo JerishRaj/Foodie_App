@@ -11,32 +11,35 @@ public class Order {
 	private int totalAmount;
 	private String status;
 	private String paymentMode;
+	private String deliveryAddress;
 	
 	public Order() {
 		
 	}
 
-	public Order(int restaurantId, int userId, Timestamp orderDate, int totalAmount, String status, String paymentMode) {
-		super();
-		this.restaurantId = restaurantId;
-		this.userId = userId;
-		this.orderDate = orderDate;
-		this.totalAmount = totalAmount;
-		this.status = status;
-		this.paymentMode = paymentMode;
-	}
+    public Order(int restaurantId, int userId, Timestamp orderDate, int totalAmount, String status, String paymentMode, String deliveryAddress) {
+        super();
+        this.restaurantId = restaurantId;
+        this.userId = userId;
+        this.orderDate = orderDate;
+        this.totalAmount = totalAmount;
+        this.status = status;
+        this.paymentMode = paymentMode;
+        this.deliveryAddress = deliveryAddress;
+    }
 
-	public Order(int orderId, int restaurantId, int userId, Timestamp orderDate, int totalAmount, String status,
-			String paymentMode) {
-		super();
-		this.orderId = orderId;
-		this.restaurantId = restaurantId;
-		this.userId = userId;
-		this.orderDate = orderDate;
-		this.totalAmount = totalAmount;
-		this.status = status;
-		this.paymentMode = paymentMode;
-	}
+    public Order(int orderId, int restaurantId, int userId, Timestamp orderDate, int totalAmount, String status,
+            String paymentMode, String deliveryAddress) {
+        super();
+        this.orderId = orderId;
+        this.restaurantId = restaurantId;
+        this.userId = userId;
+        this.orderDate = orderDate;
+        this.totalAmount = totalAmount;
+        this.status = status;
+        this.paymentMode = paymentMode;
+        this.deliveryAddress = deliveryAddress;
+    }
 
 	public int getOrderId() {
 		return orderId;
@@ -93,6 +96,14 @@ public class Order {
 	public void setPaymentMode(String paymentMode) {
 		this.paymentMode = paymentMode;
 	}
+	
+    public String getDeliveryAddress() {
+        return deliveryAddress;
+    }
+
+    public void setDeliveryAddress(String deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
+    }
 
 	@Override
 	public String toString() {

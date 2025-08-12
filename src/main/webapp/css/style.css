@@ -6,6 +6,20 @@ body {
     color: #222;
 }
 
+/* Center specific page containers vertically and horizontally */
+body.centered-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full height viewport */
+}
+
+/* Optional: prevent navbar from affecting centering */
+body.centered-page .navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -250,19 +264,27 @@ body {
 .add-cart-btn:hover {
     background: #fe962b;
 }
-.cart-container, .order-container, .account-container {
-    max-width: 800px;
-    margin: 2em auto;
+.cart-container,.order-container,.account-container,.form-container {
+    max-width: 800px;               /* slightly wider than before */
+    margin: 2em auto;                 /* keep horizontally centered */
     background: #fff;
     border-radius: 1.2em;
     box-shadow: 0 4px 24px #ffe9e4;
     padding: 2em 2em;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);    /* vertically center in viewport */
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    box-sizing: border-box;
+   	
 }
-.cart-title, .order-title, .account-title {
+.cart-title, .order-title, .account-title, .form-title {
     font-size: 2em;
     color: #ff5a1f;
     font-weight: bold;
     margin-bottom: 1em;
+    text-align: center;
 }
 .cart-table, .order-table {
     width: 100%;
@@ -285,7 +307,7 @@ body {
     object-fit: cover;
 }
 .cart-footer {
-    text-align: right;
+    text-align: center;
     margin-top: 1.3em;
 }
 .checkout-btn {
@@ -359,7 +381,7 @@ body {
     margin-bottom: 1em;
     text-align: center;
 }
-@media (max-width: 800px) {
+@media (max-width: 800px), (max-height: 720px) {
     .hero-section {
         flex-direction: column;
         padding: 1.5em 0 0.5em 0;
@@ -371,10 +393,17 @@ body {
         grid-template-columns: 1fr;
         padding: 0 1em 1em 1em;
     }
-    .cart-container, .order-container, .account-container {
-        padding: 1em 0.5em;
+     .container-centered {
+        padding: 1em;
+    }
+   .cart-container, .order-container, .account-container, .form-container {
+        position: static;
+        transform: none;
+        margin: 2em auto;   /* original behavior for small screens */
+        padding: 1em;
     }
 }
+
 ::-webkit-scrollbar {
     width: 12px;
     background: #ffe9e4;

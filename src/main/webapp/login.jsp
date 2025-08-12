@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="Images/logo.png">
 </head>
-<body>
+<body style="background-image: url('Images/food_background.jpg'); background-size: cover;" class="centered-page">
     <div class="form-container">
         <div class="form-title"><i class="fa fa-sign-in"></i> Login</div>
         <form action="login" method="post">

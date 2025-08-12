@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="Images/logo.png">
 </head>
-<body>
+<body style="background-image: url('Images/food_background.jpg'); background-size: cover;" class="centered-page">
     <div class="form-container">
         <div class="form-title"><i class="fa fa-user-plus"></i> Register</div>
         <form action="user-registration" method="post">
@@ -43,10 +43,10 @@
                 <label class="form-label">Address</label>
                 <input type="text" name="address" class="form-input" required>
             </div>
-          <div class="form-group">
-               <label class="form-label">Select Role</label>
+           <div class="form-group">
+               <label class="form-label">Role</label>
                <select name="role" class="form-select" required>
-               <option value="">Select Role</option>
+               <option value="SelectRole">Select Role</option>
                <option value="Customer">Customer</option>
                <option value="RestaurantAdmin">Restaurant Admin</option>
                <option value="DeliveryAgent">Delivery Agent</option>

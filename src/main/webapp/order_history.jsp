@@ -8,25 +8,25 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="Images/logo.png">
     <style>
-        .back-btn {
-            padding: 10px 25px;
-            background: #ff5a1f;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 1.1em;
-            cursor: pointer;
-            margin-top: 30px;
-            margin-bottom: 10px;
-            transition: background 0.2s;
+    .back-btn {
+	     padding: 10px 25px;
+         background: #ff5a1f;
+         color: #fff;
+         border: none;
+         border-radius: 6px;
+         font-weight: bold;
+         font-size: 1.1em;
+         cursor: pointer;
+         margin-top: 30px;
+         margin-bottom: 10px;
+         transition: background 0.2s;
         }
-        .back-btn:hover {
-            background: #e14c15;
+.back-btn:hover {
+         background: #e14c15;
         }
     </style>
 </head>
-<body>
+<body style="background-image: url('Images/food_background.jpg'); background-size: cover;" class="centered-page">
     <div class="order-container">
         <div class="order-title"><i class="fa fa-list"></i> Your Orders</div>
         <%
@@ -43,6 +43,7 @@
                     <th>Total Amount</th>
                     <th>Status</th>
                     <th>Payment</th>
+                    <th>Delivery Address</th>
                 </tr>
                 <%
                     for (Order order : orders) {
@@ -54,6 +55,7 @@
                     <td><i class="fa fa-inr"></i> <%= order.getTotalAmount() %></td>
                     <td><%= order.getStatus() %></td>
                     <td><%= order.getPaymentMode() %></td>
+                    <td><%= order.getDeliveryAddress() %></td>
                 </tr>
                 <% } %>
             </table>

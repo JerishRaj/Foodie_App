@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="Images/logo.png">
 </head>
-<body>
+<body style="background-image: url('Images/food_background.jpg'); background-size: cover;" class="centered-page">
     <div class="order-container" style="text-align:center;">
         <div class="order-title"><i class="fa fa-check-circle" style="color:#1ab02a"></i> Order Confirmed!</div>
         <p class="success-message">Your order has been placed successfully.</p>
